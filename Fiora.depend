@@ -1,0 +1,189 @@
+# depslib dependency file v1.0
+1677342103 source:f:\testing\fiora\src\loadtexture\loadtexture.cpp
+	"LoadTexture.h"
+
+1677337338 f:\testing\fiora\src\loadtexture\loadtexture.h
+	<string>
+	<SDL.h>
+	<SDL_image.h>
+	<iostream>
+	<map>
+
+1677482067 source:f:\testing\fiora\main.cpp
+	"GameBase.h"
+	"LoadTexture.h"
+
+1677397053 f:\testing\fiora\src\gamebase\gamebase.h
+	<SDL.h>
+	<SDL_image.h>
+	<vector>
+	<iostream>
+	"LoadTexture.h"
+	"GameEvent.h"
+	"Character.h"
+	"Timer.h"
+	"Ghost.h"
+	"MouseCursor.h"
+
+1677726453 source:f:\testing\fiora\src\character\character.cpp
+	"Character.h"
+
+1677505459 f:\testing\fiora\src\character\character.h
+	"SDL.h"
+	"SDL_image.h"
+	"LoadTexture.h"
+	"Vector2D.h"
+	<map>
+
+1677242896 source:f:\testing\fiora\src\timer\timer.cpp
+	"Timer.h"
+
+1677505557 f:\testing\fiora\src\timer\timer.h
+	<SDL.h>
+
+1677080385 source:f:\testing\fiora\src\character\entity.cpp
+	"Entity.h"
+
+1677080378 f:\testing\fiora\src\character\entity.h
+	"SDL.h"
+	"LoadTexture.h"
+
+1677118271 source:f:\testing\fiora\src\testrec\testrect.cpp
+	"TestRect.h"
+
+1677118118 f:\testing\fiora\src\testrec\testrect.h
+	<SDL.h>
+	<SDL_image.h>
+
+1677232530 source:f:\testing\fiora\src\testplayer\testplayer.cpp
+	"TestPlayer.h"
+
+1677231287 f:\testing\fiora\src\testplayer\testplayer.h
+	<SDL.h>
+
+1677388408 source:f:\testing\fiora\src\enemy\enemy.cpp
+	"Enemy.h"
+
+1677378329 f:\testing\fiora\src\enemy\enemy.h
+	<SDL.h>
+	"LoadTexture.h"
+
+1677808949 source:f:\testing\fiora\src\gameevent\gameevent.cpp
+	"GameEvent.h"
+
+1677505661 f:\testing\fiora\src\gameevent\gameevent.h
+	"Enemy.h"
+	"Character.h"
+	<vector>
+	"SDL.h"
+	"SDL_image.h"
+	"Ghost.h"
+
+1677297795 f:\testing\fiora\src\enemy\ghost.h
+	<SDL.h>
+	"Character.h"
+
+1677388256 source:f:\testing\fiora\src\enemy\ghost.cpp
+	"Ghost.h"
+
+1677339563 source:f:\testing\fiora\src\physic\vector2d.cpp
+	"Vector2D.h"
+
+1677339558 f:\testing\fiora\src\physic\vector2d.h
+
+1677481883 source:f:\testing\fiora\src\mousecursor\mousecursor.cpp
+	"MouseCursor.h"
+
+1677481967 f:\testing\fiora\src\mousecursor\mousecursor.h
+	"LoadTexture.h"
+
+1677726354 source:f:\testing\fiora\src\camera\camera.cpp
+	"Camera.h"
+
+1677507501 f:\testing\fiora\src\camera\camera.h
+	"Character.h"
+
+1677482067 source:f:\game_assignment\game\main.cpp
+	"GameBase.h"
+	"LoadTexture.h"
+
+1677397053 f:\game_assignment\game\src\gamebase\gamebase.h
+	<SDL.h>
+	<SDL_image.h>
+	<vector>
+	<iostream>
+	"LoadTexture.h"
+	"GameEvent.h"
+	"Character.h"
+	"Timer.h"
+	"Ghost.h"
+	"MouseCursor.h"
+
+1677337338 f:\game_assignment\game\src\loadtexture\loadtexture.h
+	<string>
+	<SDL.h>
+	<SDL_image.h>
+	<iostream>
+	<map>
+
+1677505661 f:\game_assignment\game\src\gameevent\gameevent.h
+	"Enemy.h"
+	"Character.h"
+	<vector>
+	"SDL.h"
+	"SDL_image.h"
+	"Ghost.h"
+
+1677378329 f:\game_assignment\game\src\enemy\enemy.h
+	<SDL.h>
+	"LoadTexture.h"
+
+1677505459 f:\game_assignment\game\src\character\character.h
+	"SDL.h"
+	"SDL_image.h"
+	"LoadTexture.h"
+	"Vector2D.h"
+	<map>
+
+1677339558 f:\game_assignment\game\src\physic\vector2d.h
+
+1677297795 f:\game_assignment\game\src\enemy\ghost.h
+	<SDL.h>
+	"Character.h"
+
+1677505557 f:\game_assignment\game\src\timer\timer.h
+	<SDL.h>
+
+1677481967 f:\game_assignment\game\src\mousecursor\mousecursor.h
+	"LoadTexture.h"
+
+1677726354 source:f:\game_assignment\game\src\camera\camera.cpp
+	"Camera.h"
+
+1677507501 f:\game_assignment\game\src\camera\camera.h
+	"Character.h"
+
+1677726453 source:f:\game_assignment\game\src\character\character.cpp
+	"Character.h"
+
+1677388408 source:f:\game_assignment\game\src\enemy\enemy.cpp
+	"Enemy.h"
+
+1677388256 source:f:\game_assignment\game\src\enemy\ghost.cpp
+	"Ghost.h"
+
+1677934030 source:f:\game_assignment\game\src\gameevent\gameevent.cpp
+	"GameEvent.h"
+
+1677342103 source:f:\game_assignment\game\src\loadtexture\loadtexture.cpp
+	"LoadTexture.h"
+
+1677481883 source:f:\game_assignment\game\src\mousecursor\mousecursor.cpp
+	"MouseCursor.h"
+
+1677339563 source:f:\game_assignment\game\src\physic\vector2d.cpp
+	"Vector2D.h"
+
+1677242896 source:f:\game_assignment\game\src\timer\timer.cpp
+	"Timer.h"
+
