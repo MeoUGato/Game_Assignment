@@ -50,24 +50,28 @@ int main(int argc, char* argv[])
 
         player.Update_Position(time_manage.get_delta_time());
 
-        game_update.Check_Player_And_Block(player);
 
         player.m_character_frame.RenderByFrame(g_renderer, player.id, player.Get_Rect()->x, player.Get_Rect()->y
                                                , 180, 180, player.current_frame, player.flip_flag);
 
-
-
-        SDL_RenderDrawRect(g_renderer, player.Get_Hitbox());
+        player.heart_player.RenderByFrame(g_renderer, "heart", 0, 669, 51, 51, player.current_heart_frame, SDL_FLIP_NONE);
 
         //end
-
+        //sword
+        game_update.CallSword(events, mouse, sword);
+        sword.update_sword();
+        sword.m_sword_texture.Render(g_renderer,"sword",sword.get_rect()->x, sword.get_rect()->y, sword.get_rect()->w,
+                                     sword.get_rect()->h, SDL_FLIP_VERTICAL);
+        game_update.Kill_Ghost(sword);
+        game_update.ultimate.Render(g_renderer,game_update.ulti_state, 200, 656, 64, 64, SDL_FLIP_NONE);
+        //end
         // ghostball
         for (Enemy& ghost_ball : game_update.enemies)
         {
             ghost_ball.m_enemy_frame.RenderByFrame(g_renderer, "ghostball", ghost_ball.Get_Rect()->x,
                                                    ghost_ball.Get_Rect()->y, 56, 56, ghost_ball.current_frame, ghost_ball.flip_flag);
             ghost_ball.update_pos();
-            //game_update.Check_Player_And_Ghostball(player,ghost_ball);
+            game_update.Check_Player_And_Ghostball(player,ghost_ball);
         }
 
         // ghost
@@ -168,17 +172,15 @@ bool LoadMedia()
         return false;
     }
 
-    if (!player.m_character_frame.Load_Texture_From_Path("asset/Attack1.png", "attack_1", g_renderer))
+    if (!player.m_character_frame.Load_Texture_From_Path("asset/Death.png", "death", g_renderer))
     {
         std::cout << "Can't load this img\n";
         return false;
     }
 
-    if (!player.m_character_frame.Load_Texture_From_Path("asset/Attack2.png", "attack_2", g_renderer))
-    {
-        std::cout << "Can't load this img\n";
-        return false;
-    }
+
+
+    if (!player.heart_player.Load_Texture_From_Path("asset/Heart.png","heart", g_renderer));
 
     game_update.AddEnemy();
     game_update.AddGhost();
@@ -212,12 +214,27 @@ bool LoadMedia()
         return false;
     }
 
-    if (!mouse.Mouse_Texture.Load_Texture_From_Path("asset/CyberSword.png", "sword", g_renderer))
+    if (!sword.m_sword_texture.Load_Texture_From_Path("asset/CyberSword.png", "sword", g_renderer))
     {
         std::cout << "Can't load this img\n";
         return false;
     }
+
+    if (!game_update.ultimate.Load_Texture_From_Path("asset/Ultimate.png", "ultimate", g_renderer))
+    {
+        std::cout << "Can't load this img\n";
+        return false;
+    }
+
+    if (!game_update.ultimate.Load_Texture_From_Path("asset/Ultimate_gray.png", "ultimate_gray", g_renderer))
+    {
+        std::cout << "Can't load this img\n";
+        return false;
+    }
+
     return true;
+
+
 }
 
 void Close()

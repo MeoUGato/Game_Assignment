@@ -8,10 +8,7 @@ class MouseCursor
         MouseCursor();
         LoadTexture Mouse_Texture;
         SDL_Rect Mouse_Rect;
-        SDL_Rect Sword_Rect;
         void Update();
-
-        void Call_CyberSword(SDL_Event& events);
 
         void Sword_Falling();
 

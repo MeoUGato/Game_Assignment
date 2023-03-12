@@ -12,7 +12,7 @@
 #include "Timer.h"
 #include "Ghost.h"
 #include "MouseCursor.h"
-
+#include "CyberSword.h"
 const int SCREEN_WIDTH = 1260;
 const int SCREEN_HEIGHT = 720;
 
@@ -30,6 +30,7 @@ LoadTexture g_background;
 Timer time_manage;
 Character player;
 MouseCursor mouse;
-float current_time = 0.f;
-float prev_time = 0.f;
-float delta_time = 0.f;
+CyberSword sword;
+
+
+

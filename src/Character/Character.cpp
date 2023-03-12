@@ -22,7 +22,7 @@ Character::Character()
     player_vel.x = 0.f;
     player_vel.y = 0.f;
 
-    player_acc.x = 5.f;
+    player_acc.x = 7.f;
     player_acc.y = -15.f;
 
     // default state
@@ -32,6 +32,7 @@ Character::Character()
     max_frame = IDLE_FRAMES;
 
     is_jumpping = false;
+    current_heart_frame = 0;
 }
 
 SDL_Rect* Character::Get_Rect()
@@ -51,6 +52,13 @@ void Character::Character_Handle(SDL_Event& event)
     const Uint8* keystate = SDL_GetKeyboardState(NULL);
 
     // if no input from keyboard;
+    if (id == "death")
+    {
+        current_frame ++;
+        if (id == "death") max_frame = DEATH_FRAMES;
+        return;
+    }
+
     player_vel.x = 0.f;
     if (is_jumpping) id = "jump";
     else id = "idle";
@@ -80,7 +88,6 @@ void Character::Character_Handle(SDL_Event& event)
         is_jumpping = true;
         max_frame = JUMP_FRAMES;
     }
-
     // update frame
     current_frame = (SDL_GetTicks() / 50) % max_frame;
 
@@ -91,11 +98,9 @@ void Character::Update_Position(float dt)
     // gravity
     player_vel.y += (float)GRAVITY * dt;
 
-
     // update position by time
     player_pos.x += player_vel.x * dt;
     player_pos.y += player_vel.y * dt;
-
 
     // no falling out of background
     if (player_pos.y + m_hitbox->h >= 640.f)
@@ -104,8 +109,26 @@ void Character::Update_Position(float dt)
         player_vel.y = 0.f;
         is_jumpping = false;
     }
+    // jump and stand in platform
+    for (SDL_Rect& block : blocks)
+    {
+        if ((player_pos.x >= block.x - m_hitbox->w) && (player_pos.x <= block.x + block.w)
+            && (player_pos.y + m_hitbox->h >= block.y) && (player_pos.y <= block.y)
+            && (player_vel.y >= 0.f))
+        {
+                player_vel.y = 0.f;
+                is_jumpping = false;
+                player_pos.y = block.y - m_hitbox->h;
+        }
+    }
+
 
     // update hitbox and rectangle frame
+    if (player_pos.x <= 0) player_pos.x = 0;
+    if (player_pos.x + m_hitbox->w >= 1260) player_pos.x = 1260 - m_hitbox->w;
+
+    if (player_pos.y <= 0) player_pos.y = 0;
+
     m_hitbox->x = (int)player_pos.x;
     m_hitbox->y = (int)player_pos.y;
 
@@ -131,8 +154,8 @@ float Character::get_y_vel()
 // in case character die
 void Character::reset_pos()
 {
-    m_hitbox -> x = 100;
-    m_hitbox -> y = 640;
+    player_pos.x = 100;
+    player_pos.y = 640;
 }
 
 

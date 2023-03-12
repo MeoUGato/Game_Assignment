@@ -15,6 +15,7 @@ class Enemy
         int current_frame;
 
         void update_pos();
+        int time_boost;
     private:
         SDL_Rect* m_rect;
         int enemy_speed;

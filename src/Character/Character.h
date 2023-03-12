@@ -6,7 +6,7 @@
 #include "LoadTexture.h"
 #include "Vector2D.h"
 #include <map>
-
+#include <vector>
 
 const int FRAME_SIZE = 180;
 
@@ -14,11 +14,12 @@ const int PLAYER_WIDTH = 30;
 const int PLAYER_HEIGHT = 45;
 
 const int GRAVITY = 1;
-const int IDLE_FRAMES = 11;
-const int JUMP_FRAMES = 3;
-const int RUN_FRAMES = 8;
-const int ATTACK_FRAMES = 6;
+const int IDLE_FRAMES = 10;
+const int JUMP_FRAMES = 2;
+const int RUN_FRAMES = 7;
+const int DEATH_FRAMES = 10;
 
+const int HEART_SIZE = 17;
 enum X_POS_STATE
 {
     X_LEFT,
@@ -70,10 +71,16 @@ public:
 
     bool is_jumpping;
     int character_state;
-
+    bool shield_state = false;
+    // heart
+    LoadTexture heart_player;
+    int current_heart_frame;
     // collision
     SDL_Rect* Get_Hitbox();
-
+    std::vector<SDL_Rect> blocks {{75,178,130,30},{25,358,75,30},{75,460,150,30},{226,255,175,30},
+        {275,410,125,30}, {480,330,75,30}, {455,510,100,30}, {680,180,150,30}, {605,255,75,30},
+        {605,410,175,30}, {605,590,50,50}, {655,590,50,10}, {805,512,75,30}, {855,332,155,30},
+        {1032,255,100,30}, {905,127, 130,30}, {1110, 75, 125, 30}};
 private:
     // rectangle texture
     SDL_Rect* m_rect;

@@ -46,7 +46,6 @@ void LoadTexture::RenderByFrame(SDL_Renderer* renderer, std::string id, int x, i
     SDL_Rect src_rect = {width * frame, 0, width, height};
     SDL_Rect dst_rect = {x, y, width, height};
     SDL_RenderCopyEx(renderer, g_texture_map[id], &src_rect, &dst_rect, 0, nullptr, flip_flag);
-    SDL_RenderDrawRect(renderer, &dst_rect);
 }
 
 void LoadTexture::Clean()

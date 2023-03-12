@@ -103,11 +103,11 @@
 1677507501 f:\testing\fiora\src\camera\camera.h
 	"Character.h"
 
-1677482067 source:f:\game_assignment\game\main.cpp
+1678348216 source:f:\game_assignment\game\main.cpp
 	"GameBase.h"
 	"LoadTexture.h"
 
-1677397053 f:\game_assignment\game\src\gamebase\gamebase.h
+1678342768 f:\game_assignment\game\src\gamebase\gamebase.h
 	<SDL.h>
 	<SDL_image.h>
 	<vector>
@@ -118,6 +118,7 @@
 	"Timer.h"
 	"Ghost.h"
 	"MouseCursor.h"
+	"CyberSword.h"
 
 1677337338 f:\game_assignment\game\src\loadtexture\loadtexture.h
 	<string>
@@ -126,35 +127,39 @@
 	<iostream>
 	<map>
 
-1677505661 f:\game_assignment\game\src\gameevent\gameevent.h
+1678345374 f:\game_assignment\game\src\gameevent\gameevent.h
 	"Enemy.h"
 	"Character.h"
 	<vector>
 	"SDL.h"
 	"SDL_image.h"
 	"Ghost.h"
+	"CyberSword.h"
+	"MouseCursor.h"
 
-1677378329 f:\game_assignment\game\src\enemy\enemy.h
+1678347404 f:\game_assignment\game\src\enemy\enemy.h
 	<SDL.h>
 	"LoadTexture.h"
 
-1677505459 f:\game_assignment\game\src\character\character.h
+1678361122 f:\game_assignment\game\src\character\character.h
 	"SDL.h"
 	"SDL_image.h"
 	"LoadTexture.h"
 	"Vector2D.h"
 	<map>
+	<vector>
 
 1677339558 f:\game_assignment\game\src\physic\vector2d.h
 
-1677297795 f:\game_assignment\game\src\enemy\ghost.h
+1678338678 f:\game_assignment\game\src\enemy\ghost.h
 	<SDL.h>
 	"Character.h"
+	"cmath"
 
-1677505557 f:\game_assignment\game\src\timer\timer.h
+1678342980 f:\game_assignment\game\src\timer\timer.h
 	<SDL.h>
 
-1677481967 f:\game_assignment\game\src\mousecursor\mousecursor.h
+1678329908 f:\game_assignment\game\src\mousecursor\mousecursor.h
 	"LoadTexture.h"
 
 1677726354 source:f:\game_assignment\game\src\camera\camera.cpp
@@ -163,22 +168,22 @@
 1677507501 f:\game_assignment\game\src\camera\camera.h
 	"Character.h"
 
-1677726453 source:f:\game_assignment\game\src\character\character.cpp
+1678361689 source:f:\game_assignment\game\src\character\character.cpp
 	"Character.h"
 
-1677388408 source:f:\game_assignment\game\src\enemy\enemy.cpp
+1678347829 source:f:\game_assignment\game\src\enemy\enemy.cpp
 	"Enemy.h"
 
-1677388256 source:f:\game_assignment\game\src\enemy\ghost.cpp
+1678346379 source:f:\game_assignment\game\src\enemy\ghost.cpp
 	"Ghost.h"
 
-1677934030 source:f:\game_assignment\game\src\gameevent\gameevent.cpp
+1678361545 source:f:\game_assignment\game\src\gameevent\gameevent.cpp
 	"GameEvent.h"
 
-1677342103 source:f:\game_assignment\game\src\loadtexture\loadtexture.cpp
+1678349237 source:f:\game_assignment\game\src\loadtexture\loadtexture.cpp
 	"LoadTexture.h"
 
-1677481883 source:f:\game_assignment\game\src\mousecursor\mousecursor.cpp
+1678330264 source:f:\game_assignment\game\src\mousecursor\mousecursor.cpp
 	"MouseCursor.h"
 
 1677339563 source:f:\game_assignment\game\src\physic\vector2d.cpp
@@ -186,4 +191,10 @@
 
 1677242896 source:f:\game_assignment\game\src\timer\timer.cpp
 	"Timer.h"
+
+1678342384 source:f:\game_assignment\game\src\sword\cybersword.cpp
+	"CyberSword.h"
+
+1678342341 f:\game_assignment\game\src\sword\cybersword.h
+	"LoadTexture.h"
 

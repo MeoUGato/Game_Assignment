@@ -3,7 +3,7 @@
 
 #include <SDL.h>
 #include "Character.h"
-
+#include "cmath"
 const int GHOST_FLY_FRAME = 6;
 const int GHOST_DEATH_FRAME = 5;
 
@@ -28,6 +28,7 @@ class Ghost
 
     private:
         SDL_Rect* m_rect;
+        int x_vel, y_vel;
 };
 
 #endif // GHOST_H

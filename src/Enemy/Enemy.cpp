@@ -7,7 +7,8 @@ Enemy::Enemy(SDL_Rect tmp_rect)
     m_rect->y = tmp_rect.y;
     m_rect->w = tmp_rect.w;
     m_rect->h = tmp_rect.h;
-    enemy_speed = 1;
+    enemy_speed = 0;
+    time_boost = 1000;
     current_frame = 0;
     flip_flag = (rand() % 2 ? SDL_FLIP_NONE : SDL_FLIP_HORIZONTAL);
 }
@@ -35,4 +36,6 @@ void Enemy::update_pos()
         }
     }
     current_frame = (SDL_GetTicks() / 50) % GHOSTBALL_FRAMES;
+
+    enemy_speed = SDL_GetTicks() / 7000 + 1;
 }

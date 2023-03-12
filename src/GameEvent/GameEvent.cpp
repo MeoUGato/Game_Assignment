@@ -37,52 +37,71 @@ bool GameEvent::CheckCollision(const SDL_Rect& rect1, const SDL_Rect& rect2)
 
 void GameEvent::Check_Player_And_Ghostball(Character& player, Enemy& ghostball)
 {
-    if (CheckCollision(*player.Get_Hitbox(), *ghostball.Get_Rect()))
+    if (SDL_GetTicks() - shield_time >= 5000) player.shield_state = false;
+    if (CheckCollision(*player.Get_Hitbox(), *ghostball.Get_Rect()) && !player.shield_state)
     {
-        hp_player--;
-        if (hp_player == 0) player.reset_pos();
-        return;
+        player.current_heart_frame ++;
+        if (player.current_heart_frame == 4)
+        {
+             player.id = "death";
+             player.current_heart_frame = 4;
+        }
+        player.shield_state = true;
+        shield_time = SDL_GetTicks();
     }
 }
 
 void GameEvent::AddGhost()
 {
-    for (int i = 1; i <= 2; i++)
+    for (int i = 1; i <= 1; i++)
     {
         ghosts.push_back(Ghost());
     }
 }
 
+void GameEvent::CallSword(SDL_Event & event, MouseCursor& mouse, CyberSword& cybersword)
+{
+    const Uint8* keystate = SDL_GetKeyboardState(NULL);
+    if (SDL_GetTicks() - cooldown_time > 5000) ulti_state = "ultimate";
+
+    if (keystate[SDL_SCANCODE_U] && ulti_state == "ultimate")
+    {
+        cybersword.get_rect()->x = mouse.Mouse_Rect.x + mouse.Mouse_Rect.w/5 - 4;
+        cybersword.get_rect()->y = - 150;
+        cooldown_time = SDL_GetTicks();
+        ulti_state = "ultimate_gray";
+    }
+}
+
 bool GameEvent::Check_PLayer_And_Ghost(Character& player, Ghost& ghost)
 {
-
+    if (CheckCollision(*player.Get_Hitbox(), *ghost.Get_Rect()))
+    {
+       player.current_heart_frame ++;
+       if (player.current_heart_frame == 6) player.id = "death";
+    }
 
 }
 
-bool GameEvent::Check_Player_And_Block(Character& player)
+
+void GameEvent::Kill_Ghost(CyberSword& cybersword)
 {
-    int x_pos = player.Get_Hitbox()->x;
-    int r_width = player.Get_Hitbox()->w;
-
-    int y_pos = player.Get_Hitbox()->y;
-    int r_height = player.Get_Hitbox()->h;
-
-
-    for (SDL_Rect& block : blocks)
+    for (int i = 0; i < enemies.size(); i++)
     {
-        if ((x_pos >= block.x - r_width) && (x_pos <= block.x + block.w)
-            && (y_pos <= block.y - r_height)
-            && (player.get_y_vel() >= 0.f))
+        if (CheckCollision(*cybersword.get_rect(), *enemies[i].Get_Rect()))
         {
-            player.is_jumpping = false;
-            player.set_y_vel(2.f);
-            if (y_pos + r_height >= block.y && y_pos + r_height <= block.y + block.h)
-              player.set_y_pos((float)block.y - (float)player.Get_Hitbox()->h),
-              player.set_y_vel(0.f);
-
+            enemies[i].Get_Rect()->x = -50;
+            enemies[i].Get_Rect()->y = rand() % 600;
         }
     }
-    return false;
+    for (int i = 0; i < ghosts.size(); i++)
+    {
+        if (CheckCollision(*cybersword.get_rect(), *ghosts[i].Get_Rect()))
+        {
+            ghosts[i].Get_Rect()->x = rand() % 1260;
+            ghosts[i].Get_Rect()->y = rand() % 600;
+        }
+    }
 }
 
 
